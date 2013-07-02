@@ -1,0 +1,90 @@
+//@include establish-baseline;
+
+// html {
+//   @include adjust-leading-to(4);
+// }
+
+// body {
+//   //@include debug-vertical-alignment();
+//   margin: 0;
+// }
+
+.visuallyhidden {
+  @extend %visuallyhidden;
+}
+
+
+.fri-container {
+  font-family: $serif-font-family;
+  color: $base-font-color;
+  width: $container-width;
+  margin: 0 auto;
+  font-size: 1.4em;
+  line-height: 1.7;
+  margin: 20px 0;
+  @extend %clearfix;
+
+  h1 {
+    @include adjust-font-size-to(20px);
+    margin: 0 0 rhythm(2, 20px);
+  }
+
+  h2 {
+    font-weight: normal;
+  }
+
+  h3 {
+    font-size: 1em;
+    margin: 0 0 .5em;
+  }
+
+  p {
+    margin: 0 0 1em;
+  }
+  p, li {
+    font-size: 1em;
+  }
+}
+
+.fri-main {
+  a {
+    color: $base-font-color;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h3 {
+    margin: 20px 0 5px;
+  }
+}
+
+.fri-intro {
+  background: #fff;
+  padding: 20px 4em;
+}
+
+.fri-header {
+  background: #818285;
+  h1 {
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.fri-dl-horizontal {
+  dt {
+    float: left;
+    width: 50%;
+    clear: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  dd {
+    margin-left: 50%;
+    text-align: right;
+  }
+}

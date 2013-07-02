@@ -1,0 +1,10 @@
+.fri-main {
+  width: $main-width;
+  float: right;
+}
+
+.fri-aside, .fri-header {
+  width: $aside-width;
+  float: left;
+  margin-right: $gutter;
+}

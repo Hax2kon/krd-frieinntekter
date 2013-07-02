@@ -1,0 +1,93 @@
+.mfp-close-btn-in .mfp-close {
+	color: #fff;
+}
+.fri-popup {
+	position: relative;
+	background: #fff;
+	width: auto;
+	max-width: 800px;
+	margin: 20px auto;
+	font-family: $serif-font-family;
+	font-size: .75em;
+	line-height: 1.5;
+}
+.fri-popup-header,
+.fri-popup-content {
+	padding: 3em 5em;
+}
+
+.fri-popup-header {
+	background: #58585a;
+	color: #fff;
+	padding-bottom: 2em;
+}
+
+.fri-popup-content {
+	color: #333;
+}
+
+.fri-popup-calculation {
+	text-align: center;
+	border-collapse: collapse;
+	tr {
+		&:first-child {
+			td,th {
+				padding-top: 0;
+				border-top: 0;
+			}
+		}
+	}
+	td,th {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-top: 1px solid #ddd;
+	}
+	td {
+		&.operator {
+			font-size: 1.5em;
+		}
+	}
+	.operator {
+		width: 5%;
+	}
+	.header, .sum {
+		width: 15%;
+	}
+	.utregning {
+		width: 60%;
+		.part, .operator {
+			float: left;
+		}
+		.part {
+			width: 45%;
+		}
+		.operator {
+			width: 10%;
+			font-size: 2em;
+		}
+		.number {
+			margin-bottom: 5px;
+		}
+		.description {
+			width: 80%;
+			display: inline-block;
+			line-height: 1.25;
+			padding: 0;
+		}
+	}
+	.fraction {
+		.top, .bottom {
+			@extend %clearfix;
+		}
+		.top {
+			border-bottom: 1px solid #666;
+			margin-bottom: 10px;
+			padding-bottom: 12px;
+		}
+	}
+
+	.number, .sum {
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+}

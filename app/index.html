@@ -1,0 +1,877 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>krd frie inntekter dev</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">
+        body {
+            font-size: 125%;
+            padding: 0;
+            background: #f8f9ef;
+        }
+        #AreaFullPageContainer {
+            font-size: 50%;
+            width: 97.6em;
+            margin: 30px auto 0;
+        }
+    </style>
+    <link rel="stylesheet" href="styles/fri-main.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="styles/leaflet.ie.css" />
+    <![endif]-->
+</head>
+<body>
+<div id="AreaFullPageContainer">
+    <div class="container fri-container fri-equalcolumns fri-fylke">
+        <div class="fri-header">
+            <h1>Sortland</h1>
+        </div>
+        <div class="fri-main" role="main">
+            <div class="fri-intro">
+                <h1>Frie inntekter</h1>
+                <p>Skatteinntektene er for Asker kommune anslått til <strong>1 699 469 000 kroner</strong> i 2013,
+                    inkludert inntektsutjevning.</p>
+
+                <p>Siden vi ikke kjenner de endelige skatteinntektene for 2013 før i januar 2014, er det gjort et
+                    anslag på hvor store skatteinntektene for 2013 vil være. I anslaget er det tatt utgangspunkt i
+                    nivået på skatteinntektene i 2011. For den enkelte kommune er skatteanslaget for 2013 deretter
+                    framskrevet i tråd med veksten i det samlede skatteanslaget. Det betyr at det blir forutsatt en
+                    lik skattevekst per innbygger, med fordeling som i 2011.</p>
+
+                <p>Etter hvert som skattetallene foreligger omfordeles skatteinntekter mellom kommunene, for å
+                    utjevne forskjeller i skatteinntekter mellom kommunene. <a href="#">Les mer om inntektsutjevningen</a>.</p>
+            </div>
+            <div class="fri-collapse fri-collapse-main">
+                <div class="group collapsible">
+                    <div class="header">
+                        <dl class="fri-dl-horizontal">
+                            <dt>Anslag skatteinntekter</dt>
+                            <dd>153 604 00 kr</dd>
+                        </dl>
+                    </div>
+                    <div class="content">
+                        <div class="fri-wrap">
+                            <p>Skatteinntektene er for Asker kommune anslått til <strong>1 699 469 000 kroner</strong> i 2013,
+                                inkludert inntektsutjevning.</p>
+
+                            <p>Siden vi ikke kjenner de endelige skatteinntektene for 2013 før i januar 2014, er det gjort et
+                                anslag på hvor store skatteinntektene for 2013 vil være. I anslaget er det tatt utgangspunkt i
+                                nivået på skatteinntektene i 2011. For den enkelte kommune er skatteanslaget for 2013 deretter
+                                framskrevet i tråd med veksten i det samlede skatteanslaget. Det betyr at det blir forutsatt en
+                                lik skattevekst per innbygger, med fordeling som i 2011.</p>
+
+                            <p>Etter hvert som skattetallene foreligger omfordeles skatteinntekter mellom kommunene, for å
+                                utjevne forskjeller i skatteinntekter mellom kommunene. <a href="#">Les mer om inntektsutjevningen</a>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="operator">+</div>
+                <div class="group no-collapse">
+                    <div class="header">
+                        <dl class="fri-dl-horizontal">
+                            <dt>Totalt rammetilskudd</dt>
+                            <dd>143 374 000 kr</dd>
+                        </dl>
+                    </div>
+                    <div class="content">
+                        <div class="fri-wrap">
+                            <h3>Slik beregnes det samlede rammetilskuddet</h3>
+
+                            <div class="fri-collapse fri-collapse-sub">
+                                <div class="sub-header">
+                                    <dl class="fri-dl-horizontal">
+                                        <dt>Innbyggertilskudd før omfordeling</dt>
+                                        <dd>141 197 000 kroner</dd>
+                                    </dl>
+                                </div>
+                                <div class="fri-collapse-sub-content">
+                                    <p>Innbyggertilskudd blir først fordelt med et likt beløp per innbygger. Dette beløpet er
+                                        <strong>21 786</strong> kroner i 2013.</p>
+
+                                    <p>For Asker kommune utgjør dette: 21 786 kroner * 56 957 innbyggere = <strong>1 240 882 000
+                                        kroner</strong>.</p>
+                                </div>
+                            </div>
+
+                            <h3>Omfordeling</h3>
+
+                            <div class="fri-collapse fri-collapse-sub">
+                                <div class="sub-header init-bubbles">
+                                    <dl class="fri-dl-horizontal">
+                                        <dt>Utgiftsutjevning</dt>
+                                        <dd>398 000 kroner</dd>
+                                    </dl>
+                                </div>
+                                <div class="fri-collapse-sub-content">
+                                    <div id="fri-bubbles-canvas">
+                                    </div>
+                                    <h4 class="visuallyhidden">Enkel visning</h4>
+                                    <div id="fri-bubbles-simple" class="fri-bubbles">
+                                        <ul class="">
+                                            <li data-fill="#495e29" data-secondary-color="#ffffff" data-r="100" data-x="150" data-y="150" data-stroke="false">
+                                                <h5>behovsindeks *</h5>
+                                                <div class="calculation">1,3014</div>
+                                            </li>
+                                            <li data-fill="#ffffff" data-secondary-color="#495e29" data-r="120" data-x="400" data-y="300" data-stroke="#d0e0b7">
+                                                <h5>beregning av kommunens trekk/tillegg i utgifter</h5>
+                                                <div class="calculation">398&nbsp;000&nbsp;kr</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="visuallyhidden">Avansert visning</h4>
+                                    <div id="fri-bubbles-advanced" class="fri-bubbles">
+                                        <ul class="">
+                                            <li data-fill="#495e29" data-secondary-color="#ffffff" data-r="120" data-x="150" data-y="150">
+                                                <!--<h5>behovsindeks multiplisert med gjennomsnittlig utgiftsbehov per <br /> innbygger</h5>-->
+                                                <h5>Behovsindeksen multipliseres med landsgjennomsnittlig utgiftsbehov per innbygger for å komme fram til kommunens utgiftsbehov</h5>
+                                                <div class="calculation">1,0014 &times;&nbsp;45&nbsp;452&nbsp;kr =&nbsp;45514&nbsp;kr</div>
+                                            </li>
+                                            <li data-fill="#ffffff" data-secondary-color="#495e29" data-r="140" data-x="450" data-y="300" data-connect-to-prev="true" data-stroke="#d0e0b7">
+                                                <!-- <h5>differansen mellom kommunens beregnede utgiftsbehov og landsgjennomsnittlig utgiftsbehov per <br/> innbygger</h5> -->
+                                                <h5>Deretter finner man differansen mellom kommunens utgiftsbehov og landsgjennomsnittet.</h5>
+                                                <div class="calculation">45&nbsp;514&nbsp;kr -&nbsp;45&nbsp;452&nbsp;kr =&nbsp;61&nbsp;kr</div>
+                                            </li>
+                                            <li data-fill="#4c523e" data-secondary-color="#ffffff" data-r="120" data-x="200" data-y="450" data-connect-to-prev="true" data-stroke="#d0e0b7">
+                                                <!-- <h5>differansen multipliseres med antall innbyggere i kommunen</h5> -->
+                                                <h5>Differansen multipliseres med innbyggertallet i kommunen for å komme fram til kommunens trekk/tillegg i utgiftsutjevningen.</h5>
+                                                <div class="calculation">61&nbsp;kr &times;&nbsp;6&nbsp;481&nbsp;innbyggere =&nbsp;398&nbsp;000&nbsp;kr</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="fri-utgiftsutgjevning">
+                                        <a href="#fri-utgiftsutgjevning-description" class="index-vertical-line-header open-popup-link">Lands-gjennomsnitt <br />=&nbsp;1</a>
+                                        <div id="fri-utgiftsutgjevning-description" class="fri-popup mfp-hide" role="dialog">
+                                            <div class="fri-popup-header">
+                                                <p><span class="icon icon-man"></span><span class="icon icon-woman"></span></p>
+                                                <p>Symbolene for menneskene visualiserer verdien på kriterieindeksen. Den tredjedelen av kommunene (fylkeskommunene) som ligger nærmest landsgjennomsnittet på hvert kriterium er vist med ett menneske, den neste tredjedelen er vist med to mennesker osv.</p>
+                                            </div>
+                                        </div>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="criteria">Kriterium</th>
+                                                    <th class="sum">Vekt</th>
+                                                    <th class="criteria-index">Kriterieindeks</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-src="#indeksinnb0_1" class="open-popup-link">
+
+                                                    <td class="criteria">
+                                                        <div class="fri-utgjevning-line">
+                                                            <div class="fri-utgjevning-line__wrap">
+                                                                <div class="fri-utgjevning-line__value">Innbyggere 0-1 år</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sum fade-zeros">0,0082</td>
+                                                    <td class="fri-criteria-index fri-criteria-index--minus">
+                                                        <div class="fri-utgjevning-line fri-utgjevning-line--left">
+                                                            <div class="fri-criteria-index__wrap">
+                                                                <div class="fri-utgjevning-line__circle"></div>
+                                                                <div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div>
+                                                                <div class="fri-criteria-index__value">0,9354</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-src="#indeksinnb0_1" class="open-popup-link">
+
+                                                    <td class="criteria">
+                                                        <div class="fri-utgjevning-line">
+                                                            <div class="fri-utgjevning-line__wrap">
+                                                                <div class="fri-utgjevning-line__value">Innbyggere 0-1 år</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sum fade-zeros">0,0082</td>
+                                                    <td class="fri-criteria-index fri-criteria-index--plus">
+                                                        <div class="fri-utgjevning-line fri-utgjevning-line--left">
+                                                            <div class="fri-criteria-index__wrap">
+                                                                <div class="fri-utgjevning-line__circle"></div>
+                                                                <div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div>
+                                                                <div class="fri-criteria-index__value">0,9354</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="">
+                                                    <td colspan="3">
+                                                        <div id="indeksinnb0_1" class="fri-popup mfp-hide" role="dialog">
+                                                            <div class="fri-popup-header">
+                                                                <p>Kriteriet <strong>Innbyggere 0-1</strong> år fanger opp deler av variasjonen i kommunenes utgifter til pleie og omsorg og helsetjenester. Tall fra SSB.</p>
+                                                                <p>Kritieriet er vektet utifra lorem ipsum lorem ipsum.
+    Under vises Summen av alle kriterienes delsum utgjør kommunens behovsindeks.</p>
+                                                            </div>
+                                                            <div class="fri-popup-content">
+                                                                <table class="fri-popup-calculation">
+                                                                    <thead class="visuallyhidden">
+                                                                        <tr>
+                                                                            <th colspan="2">Overskrift</th>
+                                                                            <th>Beregning</th>
+                                                                            <th colspan="2">Sum</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th scope="row" class="header">Beregning av kriterieindex</th>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="utregning fraction">
+                                                                                <div class="top">
+                                                                                    <div class="part">
+                                                                                        <div class="number">1 284</div>
+                                                                                        <small class="description">kommunens andel av kriterium</small>
+                                                                                    </div>
+                                                                                    <div class="operator">/</div>
+                                                                                    <div class="part">
+                                                                                        <div class="number">120 901</div>
+                                                                                        <small class="description">landets andel av kriterium</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="bottom">
+                                                                                    <div class="part">
+                                                                                        <div class="number">56 957</div>
+                                                                                        <small class="description">kommunens andel av innbyggere</small>
+                                                                                    </div>
+                                                                                    <div class="operator">/</div>
+                                                                                    <div class="part">
+                                                                                        <div class="number">5 016 423</div>
+                                                                                        <small class="description">landets andel av innbyggere</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="sum">0,9354</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row" class="header">Beregning av delsum</th>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="utregning">
+                                                                                <div class="part">
+                                                                                    <div class="number">0,9354</div>
+                                                                                    <small class="description">kriterieindeks</small>
+                                                                                </div>
+                                                                                <div class="operator">&times;</div>
+                                                                                <div class="part">
+                                                                                    <div class="number">0,0054</div>
+                                                                                    <small class="description">vekting</small>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="sum">0,0051</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <!-- <div class="fri-popup-calculation">
+                                                                    <div class="header">Beregning av kriterieindex</div>
+                                                                    <div class="operator">=</div>
+                                                                    
+                                                                </div> -->
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-src="#indeksinnb2_5" class="open-popup-link">
+                                                    <td class="criteria"><div class="line"><div class="wrap">Innbyggere 2-5 år</div></div></td>
+                                                    <td class="sum fade-zeros">0,0082</td>
+                                                    <td class="criteria-index minus">
+                                                        <div class="line line-left line-circle">
+                                                            <div class="wrap">
+                                                                0,9354 
+                                                                <div class="icon icon-man"></div>
+                                                                <div class="icon icon-woman"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="">
+                                                    <td colspan="3">
+                                                        <div id="indeksinnb2_5" class="fri-popup mfp-hide" role="dialog">
+                                                            <div class="fri-popup-header">
+                                                                <p>Kriteriet <strong>Innbyggere 2-5</strong> år fanger opp deler av variasjonen i kommunenes utgifter til pleie og omsorg og helsetjenester. Tall fra SSB.</p>
+                                                                <p>Kritieriet er vektet utifra lorem ipsum lorem ipsum.
+    Under vises Summen av alle kriterienes delsum utgjør kommunens behovsindeks.</p>
+                                                            </div>
+                                                            <div class="fri-popup-content">
+                                                                <table class="fri-popup-calculation">
+                                                                    <thead class="visuallyhidden">
+                                                                        <tr>
+                                                                            <th colspan="2">Overskrift</th>
+                                                                            <th>Beregning</th>
+                                                                            <th colspan="2">Sum</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th scope="row" class="header">Beregning av kriterieindex</th>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="utregning fraction">
+                                                                                <div class="top">
+                                                                                    <div class="part">
+                                                                                        <div class="number">1 284</div>
+                                                                                        <small class="description">kommunens andel av kriterium</small>
+                                                                                    </div>
+                                                                                    <div class="operator">/</div>
+                                                                                    <div class="part">
+                                                                                        <div class="number">120 901</div>
+                                                                                        <small class="description">landets andel av kriterium</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="bottom">
+                                                                                    <div class="part">
+                                                                                        <div class="number">56 957</div>
+                                                                                        <small class="description">kommunens andel av innbyggere</small>
+                                                                                    </div>
+                                                                                    <div class="operator">/</div>
+                                                                                    <div class="part">
+                                                                                        <div class="number">5 016 423</div>
+                                                                                        <small class="description">landets andel av innbyggere</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="sum">0,9354</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row" class="header">Beregning av delsum</th>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="utregning">
+                                                                                <div class="part">
+                                                                                    <div class="number">0,9354</div>
+                                                                                    <small class="description">kriterieindeks</small>
+                                                                                </div>
+                                                                                <div class="operator">&times;</div>
+                                                                                <div class="part">
+                                                                                    <div class="number">0,0054</div>
+                                                                                    <small class="description">vekting</small>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="operator">=</td>
+                                                                            <td class="sum">0,0051</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <!-- <div class="fri-popup-calculation">
+                                                                    <div class="header">Beregning av kriterieindex</div>
+                                                                    <div class="operator">=</div>
+                                                                    
+                                                                </div> -->
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="criteria"><div class="line"><div class="wrap">Innbyggere 2-5 år</div></div></td>
+                                                    <td class="sum fade-zeros">0,0009</td>
+                                                    <td class="criteria-index plus">
+                                                        <div class="line line-left line-circle">
+                                                            <div class="wrap">
+                                                                <div class="icon icon-man"></div>
+                                                                <div class="icon icon-woman"></div>
+                                                                1,2081 
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="criteria"><div class="line"><div class="wrap">Innbyggere 2-5 år</div></div></td>
+                                                    <td class="sum fade-zeros">0,0009</td>
+                                                    <td class="criteria-index plus">
+                                                        <div class="line line-left line-circle">
+                                                            <div class="wrap">
+                                                                <div class="icon icon-man"></div>
+                                                                <div class="icon icon-woman"></div>
+                                                                <div class="icon icon-woman"></div>
+                                                                1,2081 
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="criteria"><div class="line"><div class="wrap">Innbyggere 2-5 år</div></div></td>
+                                                    <td class="sum fade-zeros">0,0009</td>
+                                                    <td class="fri-criteria-index fri-criteria-index--plus">
+                                                        <div class="fri-utgjevning-line fri-utgjevning-line--left">
+                                                            <div class="fri-criteria-index__wrap">
+                                                                <div class="fri-utgjevning-line__circle"></div>
+                                                                <div class="fri-criteria-index__value">1,2081</div>
+                                                                <div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="criteria">
+                                                        <div class="fri-utgjevning-line">
+                                                            <div class="fri-utgjevning-line__wrap">
+                                                                <div class="fri-utgjevning-line__circle"></div>
+                                                                <div class="fri-utgjevning-line__value">Innbyggere 2-5 år</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sum fade-zeros">0,0009</td>
+                                                    <td class="fri-criteria-index fri-criteria-index--plus">
+                                                        <div class="fri-utgjevning-line fri-utgjevning-line--left">
+                                                            <div class="fri-criteria-index__wrap">
+                                                                <div class="fri-utgjevning-line__circle"></div>
+                                                                <div class="fri-criteria-index__value">1,2081</div>
+                                                                <div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="criteria"><div class="line"><div class="wrap">Innbyggere 2-5 år</div></div></td>
+                                                    <td class="sum fade-zeros">0,0009</td>
+                                                    <td class="fri-criteria-index fri-criteria-index--minus">
+                                                        <div class="fri-utgjevning-line fri-utgjevning-line--left">
+                                                            <div class="fri-criteria-index__wrap">
+                                                                <div class="fri-utgjevning-line__circle"></div>
+                                                                <div class="fri-criteria-index__value">0,2081</div>
+                                                                <div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div><div class="fri-criteria-index__icon icon-man" aria-hidden="true"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="sub-header">
+                                    <dl class="fri-dl-horizontal">
+                                        <dt>Korreksjon for elever i statlige og private skoler</dt>
+                                        <dd>- 72 000 kroner</dd>
+                                    </dl>
+                                </div>
+                                <div class="fri-collapse-sub-content">
+                                    <h3>Korreksjonsordningen for elever i statlige og private skoler</h3>
+                                    <p>Enkelte kommuner har elever i statlige og private grunnskoler. Disse elevene har ikke kom- munene utgifter for. Trekkordningen for statlige og private skoler medfører at kommuner med elever i statlige og private skoler trekkes et gitt beløp per elev for de elevene kom- munene ikke yter grunnskoletjenester til. Summen av trekk fra kommuner med elever i statlige og private skoler fordeles ut igjen til alle landets kommuner etter kommunenes andel av beregnet utgiftsbehov (kostnadsnøkkelen). Korreksjonsordningen for elever i statlige og private skoler omfordeler midler fra kommuner med mange elever i statlige og private skoler til kommuner med få eller ingen elever i statlige og private skoler.</p>
+                                    <p>Det er gitt trekksatser for ulike skolekategorier, og trekket for hver kommune blir beregnet slik:</p>
+                                    <table summary="Trekksatser" class="fri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Skolekategori</th>
+                                                <th>Sats</th>
+                                                <th>Antall elever i Akershus</th>
+                                                <th></th>
+                                                <th>Sum trekk</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Vanlig undervisning</td>
+                                                <td>89 000 kr</td>
+                                                <td>1470,5</td>
+                                                <td>=</td>
+                                                <td>130 874 500 kr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gartnerskole</td>
+                                                <td>109 000 kr</td>
+                                                <td>82,3</td>
+                                                <td>=</td>
+                                                <td>8 970 700 kr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Spesialskoler</td>
+                                                <td>251 800 kr</td>
+                                                <td>9,6</td>
+                                                <td>=</td>
+                                                <td>2 417 280 kr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Skoler med opphold</td>
+                                                <td>266 000 kr</td>
+                                                <td>0,4</td>
+                                                <td>=</td>
+                                                <td>106 400 kr</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><strong>Akershus blir dermed trukket -142 368 000 kroner.</strong></p>
+                                </div>
+
+                                <div class="sub-header">
+                                    <dl class="fri-dl-horizontal">
+                                        <dt>Inntektsgarantitilskudd</dt>
+                                        <dd>- 399 000 kroner</dd>
+                                    </dl>
+                                </div>
+                                <div class="fri-collapse-sub-content">
+                                    <p>Innbyggertilskudd blir først fordelt med et likt beløp per innbygger. Dette beløpet er
+                                        <strong>21 786</strong> kroner i 2013.</p>
+
+                                    <p>For Asker kommune utgjør dette: 21 786 kroner * 56 957 innbyggere = <strong>1 240 882 000
+                                        kroner</strong>.</p>
+                                </div>
+                            </div>
+
+                            <h3>Regionalpolitisk tilskudd</h3>
+
+                            <div class="fri-collapse fri-collapse-sub">
+                                <div class="sub-header">
+                                    <dl class="fri-dl-horizontal">
+                                        <dt>Skjønnstilskudd</dt>
+                                        <dd>2 250 000 kroner</dd>
+                                    </dl>
+                                </div>
+                                <div class="fri-collapse-sub-content">
+                                    <p>Innbyggertilskudd blir først fordelt med et likt beløp per innbygger. Dette beløpet er
+                                        <strong>21 786</strong> kroner i 2013.</p>
+
+                                    <p>For Asker kommune utgjør dette: 21 786 kroner * 56 957 innbyggere = <strong>1 240 882 000
+                                        kroner</strong>.</p>
+                                </div>
+                            </div>
+
+
+                            <div class="fri-collapse fri-collapse-sub">
+                                <div class="sub-header">
+                                    <dl class="fri-dl-horizontal">
+                                        <dt>Samlet tilskudd</dt>
+                                        <dd>143 374 000 kroner</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plus operator">=</div>
+                <div class="group collapsible">
+                    <div class="header">
+                        <dl class="fri-dl-horizontal">
+                            <dt>Anslag frie inntekter</dt>
+                            <dd>296 978 000 kr</dd>
+                        </dl>
+                    </div>
+                    <div class="content">
+                        <div class="fri-wrap">
+                            <p>Anslag frie inntekter for Asker kommune er 2 897 306 000 kroner.</p>
+
+                            <p>Dette anslaget på frie inntekter innebærer en vekst for Asker kommune fra 2012 til 2013 på 6,1
+                                prosent. I samme periode er anslått landsgjennomsnittlig vekst på 5,1 prosent.</p>
+
+                            <p>Veksten i frie inntekter er regnet fra inntektsnivået i revidert nasjonalbudsjett året før
+                                budsjettåret.</p>
+
+                            <p>Siden vi ikke kjenner de endelige skatteinntektene for 2013 før i januar 2014, er det gjort et
+                                anslag på hvor store skatteinntektene for 2013 vil være. Det presiseres derfor at det angitte
+                                nivået på frie inntekter er et anslag.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fri-help">
+                <ul>
+                    <li>
+                        <h3>* Behovsindeks</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo- ris nisi ut aliquip ex ea commodo consequat.</p>
+                    </li>
+                    <li>
+                        <h3>* Utgiftsutjevning</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo- ris nisi ut aliquip ex ea commodo consequat.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="fri-aside">
+            <div class="fri-wrap">
+                <h2>Velg fylke og kommune</h2>
+                <p class="subheading">for å se hvordan de frie inntektene blir fordelt mellom kommunene og fylkeskommunene</p>
+                <div id="fri-map"></div>
+                <div class="fri-navs">
+                    <ul id="fri-fylker-nav" class="fri-nav fri-fylker-nav">
+                        <li id="fylke_2"><a href="/akershus"><span>Akershus</span></a></li>
+                        <li id="fylke_9"><a href="#"><span>Aust-Agder</span></a></li>
+                        <li id="fylke_6"><a href="#"><span>Buskerud</span></a></li>
+                        <li id="fylke_20"><a href="#"><span>Finnmark</span></a></li>
+                        <li id="fylke_4"><a href="#"><span>Hedmark</span></a></li>
+                        <li id="fylke_12" class="active"><a href="#"><span>Hordaland</span></a></li>
+                        <li id="fylke_15"><a href="#"><span>Møre og Romsdal</span></a></li>
+                        <li id="fylke_18"><a href="#"><span>Nordland</span></a></li>
+                        <li id="fylke_17"><a href="#"><span>Nord-Trøndelag</span></a></li>
+                        <li id="fylke_5"><a href="#"><span>Oppland</span></a></li>
+                        <li id="fylke_3"><a href="#"><span>Oslo</span></a></li>
+                        <li id="fylke_11"><a href="#"><span>Rogaland</span></a></li>
+                        <li id="fylke_14"><a href="#"><span>Sogn og Fjordane</span></a></li>
+                        <li id="fylke_16"><a href="#"><span>Sør-Trøndelag</span></a></li>
+                        <li id="fylke_8"><a href="#"><span>Telemark</span></a></li>
+                        <li id="fylke_19"><a href="#"><span>Troms</span></a></li>
+                        <li id="fylke_10"><a href="#"><span>Vest-Agder</span></a></li>
+                        <li id="fylke_7"><a href="#"><span>Vestfold</span></a></li>
+                        <li id="fylke_1"><a href="#"><span>Østfold</span></a></li>
+                    </ul>
+                    <ul id="fri-kommuner-nav" class="fri-nav fri-kommuner-nav">
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/alstahaug.html?id=703973" title="Alstahaug">
+                                <span>Alstahaug</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/andoy.html?id=704007" title="Andøy">
+                                <span>Andøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/ballangen.html?id=703997" title="Ballangen">
+                                <span>Ballangen</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/beiarn.html?id=703987" title="Beiarn">
+                                <span>Beiarn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/bindal.html?id=703967" title="Bindal">
+                                <span>Bindal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/bodo.html?id=703965" title="Bodø">
+                                <span>Bodø</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/bronnoy.html?id=703969" title="Brønnøy">
+                                <span>Brønnøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/bo.html?id=704004" title="Bø">
+                                <span>Bø</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/donna.html?id=703978" title="Dønna">
+                                <span>Dønna</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/evenes.html?id=703996" title="Evenes">
+                                <span>Evenes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/fauske.html?id=703989" title="Fauske">
+                                <span>Fauske</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/flakstad.html?id=704000" title="Flakstad">
+                                <span>Flakstad</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/gildeskal.html?id=703986" title="Gildeskål">
+                                <span>Gildeskål</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/grane.html?id=703976" title="Grane">
+                                <span>Grane</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/hadsel.html?id=704003" title="Hadsel">
+                                <span>Hadsel</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/hamaroy.html?id=703992" title="Hamarøy">
+                                <span>Hamarøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/hattfjelldal.html?id=703977" title="Hattfjelldal">
+                                <span>Hattfjelldal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/hemnes.html?id=703980" title="Hemnes">
+                                <span>Hemnes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/heroy.html?id=703972" title="Herøy">
+                                <span>Herøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/leirfjord.html?id=703974" title="Leirfjord">
+                                <span>Leirfjord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/luroy.html?id=703982" title="Lurøy">
+                                <span>Lurøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/lodingen.html?id=703994" title="Lødingen">
+                                <span>Lødingen</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/meloy.html?id=703985" title="Meløy">
+                                <span>Meløy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/moskenes.html?id=704008" title="Moskenes">
+                                <span>Moskenes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/narvik.html?id=703966" title="Narvik">
+                                <span>Narvik</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/nesna.html?id=703979" title="Nesna">
+                                <span>Nesna</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/rana.html?id=703981" title="Rana">
+                                <span>Rana</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/rodoy.html?id=703984" title="Rødøy">
+                                <span>Rødøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/rost.html?id=703998" title="Røst">
+                                <span>Røst</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/saltdal.html?id=703988" title="Saltdal">
+                                <span>Saltdal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/sortland.html?id=704006" title="Sortland">
+                                <span>Sortland</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/steigen.html?id=703991" title="Steigen">
+                                <span>Steigen</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/somna.html?id=703968" title="Sømna">
+                                <span>Sømna</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/sorfold.html?id=703990" title="Sørfold">
+                                <span>Sørfold</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/tjeldsund.html?id=703995" title="Tjeldsund">
+                                <span>Tjeldsund</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/trana.html?id=703983" title="Træna">
+                                <span>Træna</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/tysfjord.html?id=703993" title="Tysfjord">
+                                <span>Tysfjord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/vefsn.html?id=703975" title="Vefsn">
+                                <span>Vefsn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/vega.html?id=703970" title="Vega">
+                                <span>Vega</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/vestvagoy.html?id=704001" title="Vestvågøy">
+                                <span>Vestvågøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/vevelstad.html?id=703971" title="Vevelstad">
+                                <span>Vevelstad</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/varoy.html?id=703999" title="Værøy">
+                                <span>Værøy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/vagan.html?id=704002" title="Vågan">
+                                <span>Vågan</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/nb/dep/krd/kampanjer/gronthefte/frie-inntekter-2013/nordland/oksnes.html?id=704005" title="Øksnes">
+                                <span>Øksnes</span>
+                            </a>
+                        </li>
+                        <li class="fylkeskommune">
+                            <a href="#"><span>Nordland fylkeskommune</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
+<script>
+    var friApp = friApp || {};
+    friApp.config = {
+        SCRIPT_PATH: "/scripts"
+    }
+</script>
+
+<!-- build:js scripts/fri-main.js -->
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/raphael/raphael.js"></script>
+<script src="bower_components/topojson/topojson.js"></script>
+<script src="scripts/lib/leaflet.js"></script>
+<script src="scripts/lib/jquery.collapse.js"></script>
+<script src="scripts/lib/magnific-popup.js"></script>
+<script src="scripts/bubbles.raphael.js"></script>
+<script src="scripts/map.js"></script>
+<script src="scripts/navigation.js"></script>
+<script src="scripts/friEqualHeights.jquery.js"></script>
+<script src="scripts/fri-main.js"></script>
+<!-- endbuild -->
+
+<script>
+    friApp.bubbles.init({
+        containerWidth: 600,
+        containerHeight: 580
+    });
+    //friApp.bubbles.show();
+</script>
+
+</body>
+</html>

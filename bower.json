@@ -1,0 +1,15 @@
+{
+  "name": "krd-frieinntekter",
+  "version": "0.0.1",
+  "dependencies": {
+    "topojson": "~1.1.4",
+    "raphael": "~2.1.0",
+    "underscore": "~1.4.4"
+  },
+  "devDependencies": {},
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

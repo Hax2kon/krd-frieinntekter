@@ -1,0 +1,62 @@
+$base-font-size: 14px;
+$base-line-height: 5.5px;
+$base-font-color: #4c523e;
+$base-color: #cdd0c1;
+$base-color-dark: #495e29;
+$base-line-color: #979899;
+$background-main: #cdd0c1;
+$background-main-expanded: #f5f6f3;
+$background-aside: #818285;
+$sans-serif-font-family: Verdana,Arial,Sans-Serif;
+$serif-font-family: Georgia, "Times New Roman", Times, serif;
+
+$minus-color: #651758;
+$plus-color: #5a6a2f;
+
+$gutter: 20px;
+$container-width: 976px;
+$aside-width: 300px;
+$main-width: $container-width - $aside-width - $gutter;
+
+
+%visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+%clearfix {
+	&:before,
+	&:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	}
+
+	&:after {
+	    clear: both;
+	}
+
+	/*
+	 * For IE 6/7 only
+	 * Include this rule to trigger hasLayout and contain floats.
+	 */
+    *zoom: 1;
+}
+

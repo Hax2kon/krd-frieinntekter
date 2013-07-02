@@ -1,0 +1,46 @@
+.fri-table {
+	$stroke: $background-main-expanded;
+	margin-bottom: 1em;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid $stroke;
+	td, th {
+		background: $background-main;
+		padding: 6px 10px;
+		border-left: 1px solid $stroke;
+		border-top: 1px solid $stroke;
+		vertical-align: top;
+	}
+	th {
+		text-align: left;
+	}
+	thead {
+		th {
+			background: darken($background-main, 7);
+		}
+	}
+	tbody {
+		th {
+			font-weight: normal;
+		}
+	}
+	caption {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	.right {
+		text-align: right;
+	}
+	.center {
+		text-align: center;
+	}
+	.bordertop {
+		tr {
+			border-top-color: $stroke;
+		}
+		td, th {
+			border-top-width: 3px; 
+		}
+	}
+}

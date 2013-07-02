@@ -1,0 +1,103 @@
+$hover-background: darken(#cdd0c1, 5);
+.fri-collapse {
+  .collapsible {
+    > .content {
+      height: 0px;
+      //padding: 0px;
+      overflow: hidden;
+      display: block!important;
+      @include transform(translateZ(0));
+      @include transition(all 0.3s ease);
+      @include box-sizing(border-box);
+      &.open {
+        height: auto;
+      }
+    }
+  }
+  .header, .sub-header {
+    a {
+      position: relative;
+      &:hover {
+        @include transition(all 0.2s ease);
+        background: $hover-background;
+        &:before {
+          top: .25em;
+        }
+      }
+      &:before {
+        @extend %font-icon;
+        @include transition(top 0.1s ease-out);
+        position: absolute;
+        top: .15em;
+        content: $icon-angle-down;
+      }
+    }
+    &.open {
+      a {
+        &:before {
+          content: $icon-angle-up;
+        }
+        &:hover {
+          &:before {
+            top: .05em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fri-collapse-main {
+  margin-bottom: 2em;
+  > .group {
+    background: $background-main;
+  }
+  .header a, .no-collapse .header dl {
+    $font-size: 22px;
+    display: block;
+    text-decoration: none;
+    dt, dd {
+      margin-top: rhythm(4, $font-size);
+      margin-bottom: rhythm(4, $font-size);
+      @include adjust-font-size-to($font-size);
+    }
+  }
+  .header {
+    dl {
+      padding: 0 8em 0 4em;
+      overflow: hidden;
+      margin: 0;
+    }
+    dd {
+      font-weight: bold;
+    }
+    a {
+      &:before {
+        @extend %font-icon;
+        @include transition(top 0.1s ease-out);
+        font-size: emCalc(40px);
+        right: 1.5em;
+        //margin-top: -.25em;
+      }
+    }
+    
+  }
+  .content {
+    clear: both;
+    .fri-wrap {
+      padding: 1em 8em 2em 4em;
+    }
+    dl {
+      font-size: 1em;
+    }
+  }
+  .no-collapse .content .fri-wrap {
+    padding-top: 0;
+  }
+  .operator {
+    text-align: center;
+    @include adjust-font-size-to(30px, 8);
+    margin-top: -3px;
+    font-weight: bold;
+  }
+}

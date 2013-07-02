@@ -1,0 +1,109 @@
+.fri-aside {
+	color: #fff;
+	overflow: hidden;
+  background: #818285;
+  position: relative;
+	.fri-wrap {
+		padding: 20px;
+	}
+	a {
+		color: #fff;
+	}
+  h2 {
+    font-weight: bold;
+    @include adjust-font-size-to(20px);
+    margin: 0 0 rhythm(2, 20px);
+  }
+  h2, .subheading {
+    margin-left: 10px;
+  }
+
+  // connector lines between kommune and fylke
+  .fri-line {
+    background: #fff;
+    position: absolute;
+    &.vertical {
+      width: 1px;
+    }
+    &.horizontal {
+      height: 1px;
+    }
+    &.dot {
+      &:after {
+        $radius: 5px;
+        content: "";
+        width: $radius;
+        height: $radius;
+        background: #FFF;
+        position: absolute;
+        top: -2px;
+        left: 0;
+        @include border-radius($radius);
+        
+      }
+      &.dot-right:after {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
+.fri-navs {
+  position: relative;
+  margin: 0 10px;
+}
+.fri-nav {
+  list-style: none;
+  font-size: .9em;
+  padding: 0;
+  margin: 0 0 40px;
+  position: relative;
+  @extend %clearfix;
+  li {
+    &.active a {
+      span {
+        background: #444;
+      }
+    }
+    &.hover a, a:hover {
+      span {
+        background: $base-color-dark;
+      }
+    }
+    a {
+      display: block;
+      span {
+        padding: 0 .25em;
+        display: inline-block;
+      }
+    }
+
+  }
+}
+
+.fri-fylker-nav {
+  margin-top: -420px;
+  margin-top: -400px\9; // ie8
+  margin-left: 120px;
+	z-index: 2;
+  li {
+    text-align: right;
+  }
+}
+
+.fri-kommuner-nav {
+  &.col-2 {
+    li {
+      width: 50%;
+      float: left;
+    }
+  }
+  .active {
+
+  }
+  li.fylkeskommune {
+    clear: both;
+    width: 100%;
+    margin-top: 30px;
+  }
+}

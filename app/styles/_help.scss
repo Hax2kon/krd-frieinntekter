@@ -1,0 +1,42 @@
+.fri-help {
+	$asterixWidth: 50px;
+	.asterix, h2 {
+		background: darken($background-main-expanded, 10);
+	}
+	.asterix {
+		float: left;
+		width: $asterixWidth;
+		height: $asterixWidth;
+		text-align: center;
+		line-height: $asterixWidth * 1.5;
+		font-size: 4em;
+	}
+	h2 {
+		margin-left: $asterixWidth + 10px;
+		height: $asterixWidth;
+		line-height: $asterixWidth;
+		padding: 0 10px;
+	}
+	h3 {
+		font-style: italic;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			//background: $base-color-dark;
+			//padding: 1em;
+			margin-bottom: 1em;
+			font-style: italic;
+			background: #fff;
+			padding: 2em 4em;
+			&, a {
+				//color: #fff;
+			}
+			&:nth-child(2) {
+				//background: #444;
+			}
+		}
+	}
+}

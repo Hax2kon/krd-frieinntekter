@@ -1,0 +1,176 @@
+$right-col-offset-width: 110px;
+.fri-utgiftsutgjevning {
+	$row-hover-color: #fff;
+	overflow: hidden;
+	position: relative;
+	table {
+		width: 100%;
+		clear: both;
+		position: relative;
+		z-index: 1;
+		border-collapse:collapse;
+		line-height: 1.5;
+	}
+	thead {
+		th {
+			text-align: left;
+		}
+		.criteria-index {
+			@extend %visuallyhidden;
+		}
+	}
+	tr {
+		&.open-popup-link {
+			cursor: pointer;
+			&:hover {
+				&, .fri-criteria-index__wrap, .fri-utgjevning-line__value {
+					background: $row-hover-color;
+				}
+				.fri-utgjevning-line {
+					@include background(linear-gradient($row-hover-color 0%, $row-hover-color 49%, $base-line-color 50%, $base-line-color 51%, $row-hover-color 52%, $row-hover-color 100%));
+				}
+			}
+		}
+	}
+	td, th {
+		padding: 4px;
+	}
+	.criteria {
+		width: 48%;
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.sum {
+		width: 6%;
+		text-align: center;
+	}
+	.fade-zeros {
+		text-align: right;
+		span {
+			color: #999;
+		} 
+	}
+
+	// vertical line 
+	.index-vertical-line-header {
+		$radius: 80px;
+		@include border-radius($radius);
+		display: block;
+		width: $radius + ($radius / 3);
+		height: $radius;
+		padding-top: $radius / 3; 
+		border: 1px solid $base-line-color;
+		text-align: center;
+		float: right;
+		margin-right: $right-col-offset-width - ($radius / 1.5);
+		margin-bottom: 20px;
+		line-height: 1.3;
+		text-decoration: none;
+		&:hover {
+			background: #fff;
+		}
+	}
+
+	.index-vertical-line {
+		width: 1px;
+		background: $base-line-color;
+		position: absolute;
+		right: $right-col-offset-width;
+		bottom: 0;
+		z-index: 2; 
+	}
+}
+#fri-utgiftsutgjevning-description {
+	.icon {
+		font-size: 3em;
+	}
+}
+
+.fri-criteria-index {
+	width: 37%;
+	font-family: $sans-serif-font-family;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+
+.fri-criteria-index--plus {
+	color: $plus-color;
+}
+
+.fri-criteria-index--minus {
+	color: $minus-color;
+	.fri-criteria-index__wrap {
+		padding-right: $right-col-offset-width + 5px;
+		padding-left: 0;
+		min-width: auto;
+	}
+
+	.fri-criteria-index__value,
+	.fri-criteria-index__icon {
+		float: right;
+	}
+
+	.fri-criteria-index__icon {
+		padding-left: 0;
+		padding-right: 3px;
+	}
+}
+
+.fri-criteria-index__icon {
+	padding-left: 3px;
+}
+
+.fri-criteria-index__wrap {
+	min-width: $right-col-offset-width - 10px;
+	padding-left: 20px;
+	@extend %clearfix;
+	float: right;
+	position: relative;
+	background: $background-main-expanded;
+}
+
+.fri-criteria-index__value {
+	float: left;
+	padding: 0 6px;
+}
+
+.fri-criteria-index__icon {
+	@extend %font-icon-inline;
+	margin: 0;
+	width: auto;
+	font-size: 1.75em;
+	float: left;
+}
+
+.fri-utgjevning-line__circle {
+	$radius: 3px;
+	@include border-radius($radius);
+	width: $radius;
+	height: $radius;
+	border: 1px solid $base-line-color;
+	background: $background-main-expanded;
+	content: "";
+	position: absolute;
+	left: -$radius;
+	top: 50%;
+	margin-top: -1px;
+}
+
+.fri-utgjevning-line {
+	@include background(linear-gradient($background-main-expanded 0%, $background-main-expanded 49%, $base-line-color 50%, $base-line-color 51%, $background-main-expanded 52%, $background-main-expanded 100%));
+	@extend %clearfix;
+}
+
+.fri-utgjevning-line__wrap {
+	position: relative;
+	.fri-utgjevning-line__circle {
+		left: auto;
+		right: 0;
+	}
+}
+
+.fri-utgjevning-line__value {
+	background: $background-main-expanded;
+	display: inline;
+	padding-right: 10px;
+}

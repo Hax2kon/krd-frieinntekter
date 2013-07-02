@@ -1,0 +1,40 @@
+#fri-bubbles-canvas {
+  position: relative;
+  margin-bottom: -110px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.fri-bubbles {
+  ul {
+    @extend %visuallyhidden;
+  }
+}
+
+.fri-bubble-expand {
+  $radius: 40px;
+  position: absolute;
+  text-decoration: none;
+  width: $radius;
+  height: $radius;
+  @include border-radius($radius);
+  background: $background-main-expanded;
+  border: 1px solid $base-color-dark;
+  text-align: center;
+  z-index: 3;
+  top: 100px;
+  left: 300px;
+  &:after {
+    $size: 25px;
+    @extend %font-icon;
+    content: $icon-resize-full;
+    font-size: $size;
+    margin-top: $size / 3;
+    display: block;
+    color: $base-color-dark;
+  }
+  span {
+    @extend %visuallyhidden;
+  }
+}
