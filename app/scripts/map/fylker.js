@@ -8,13 +8,13 @@ friApp.fylker = function (_) {
     	info,
     	config,
 		fylkerLayer,
+		fylkeGeoJSON,
 		kommunerGeoJson,
-		kommunerList;
+		kommunerList,
+		showAllKommuner = true;
 
-	function addFylker(topoJsonData) {
-	    var fylkeGeoJson = topojson.feature(topoJsonData, topoJsonData.objects.N5000_fylker);
-		
-		fylkerLayer = L.geoJson(fylkeGeoJson, { 
+	function addFylker(geoJSON) {
+		fylkerLayer = L.geoJson(geoJSON, { 
 		    style: style,
 		    onEachFeature: onEachFeature
 		}).addTo(map);
@@ -63,9 +63,11 @@ friApp.fylker = function (_) {
 
 	function zoomToFeature(e) {
 		// zoom in
-	    map.fitBounds(e.target.getBounds());
-	    // get kommuner within fylke, and show
-	    friApp.kommuner.show(padFylkeId(e.target.feature.properties.FYLKE_NR));
+	    //map.fitBounds(e.target.getBounds());
+	    if(!friApp.map.o.showAllKommuner){
+		    // get kommuner within fylke, and show
+		    friApp.kommuner.show(padFylkeId(e.target.feature.properties.FYLKE_NR));
+	    }
 	}
 
 	function padFylkeId(fylkeId) {
@@ -81,11 +83,19 @@ friApp.fylker = function (_) {
         	map = mapArg;
         	info = infoArg;
         	config = configArg;
+	    	fylkeGeoJSON = topojson.feature(fylkerTopoJsonData, fylkerTopoJsonData.objects.N5000_fylker);
         	kommunerGeoJson = topojson.feature(kommunerTopoJsonData, kommunerTopoJsonData.objects.geojson);
         	kommunerList = kommunerListData;
-            addFylker(fylkerTopoJsonData);
 
             friApp.kommuner.init(map, kommunerGeoJson, kommunerList, info, config);
+
+            if(friApp.map.o.showAllKommuner){
+            	for(var i = 0, len = fylkeGeoJSON.features.length; i < len; i++){
+            		friApp.kommuner.show(padFylkeId(fylkeGeoJSON.features[i].properties.FYLKE_NR));
+            	}
+            } else {
+            	addFylker(fylkeGeoJSON);
+            }
         }
     };
 }(_);

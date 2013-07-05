@@ -3,7 +3,9 @@
 var friApp = friApp || {};
 
 friApp.map.init({
-	zoom: 4,
-	latLng: [65, 12]
+	zoom: 5,
+	zoomClick: 8,
+	latLng: [65.4, 12],
+	showAllKommuner: true
 });
 

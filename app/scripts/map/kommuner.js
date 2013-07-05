@@ -9,8 +9,8 @@ friApp.kommuner = function (_) {
     	kommunerGeoJson,
     	kommunerList,
     	kommunerLayer = L.geoJson(null),
-    	colors = ['F7FCFD', 'E0ECF4', 'BFD3E6', '9EBCDA', '8C96C6', '8C6BB1', '88419D', '6E016B', 'ff0000'],
-		grades = [0, 20000000, 25000000, 300000000, 350000000, 400000000, 450000000, 500000000, 3000000000];
+    	colors = ["#ffffe5","#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"],
+		grades = getGrades(3000000000, colors.length);
     
 
 	function style(feature) {
@@ -18,7 +18,7 @@ friApp.kommuner = function (_) {
 	        fillColor: getColor(feature.properties.fri),
 	        weight: 1,
 	        opacity: 1,
-	        color: 'white',
+	        color: '#cccccc',
 	        dashArray: '3',
 	        fillOpacity: 0.7
 	    };
@@ -28,11 +28,29 @@ friApp.kommuner = function (_) {
 	    var color = '#333333';
 	    grades.forEach(function(grade, i) {
 	        if(dough > grade) {
-	            color = '#' + colors[i];
+	            color = colors[i];
 	        }
 	    });
 	    return color;
 	};
+
+	// generate grades with a exponential factor
+	function getGrades(max, number){
+		var avg = max / number,
+			i,
+			grades = [],
+			factor = 1.25;
+
+		for(i = 0; i < number; i++){
+			grades.push((ceilTo(avg * Math.pow(factor, i) - avg, 100000000)) * i);
+		}
+
+		return grades;
+	}
+
+	function ceilTo(number, digits) {
+		return Math.ceil((number) / digits) * digits
+	}
 
 	// returns a geojson with kommuner inside fylke
 	function filterKommunerWithinFylke(fylkeId) {
@@ -58,7 +76,6 @@ friApp.kommuner = function (_) {
 
 	function highlightFeature(e) {
 	    var layer = e.target;
-
 	    layer.setStyle({
 	        weight: 2,
 	        color: '#666',
@@ -74,7 +91,14 @@ friApp.kommuner = function (_) {
 	}
 
 	function clickFeature(e) {
-		alert('Gå til ' + getKommuneName(e.target.feature.properties.id));
+		var bounds = e.target.getBounds(),
+			center = bounds.getCenter();
+
+		map.setZoomAround(center, friApp.map.o.zoomClick);
+		if(map.getZoom() === friApp.map.o.zoomClick) {
+			map.panTo(center);
+		}
+		//alert('Gå til ' + getKommuneName(e.target.feature.properties.id));
 	}
 
 	function getKommuneName(id) {
@@ -102,8 +126,7 @@ friApp.kommuner = function (_) {
         show: function(fylkeId) {
 
 		    var kommunerInFylke = filterKommunerWithinFylke(fylkeId);
-
-		    map.removeLayer(kommunerLayer);
+	    	//map.removeLayer(kommunerLayer);
 		    kommunerLayer = L.geoJson(kommunerInFylke, { 
 		        style: style,
 		        onEachFeature: onEachFeature

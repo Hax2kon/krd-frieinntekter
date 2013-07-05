@@ -193,7 +193,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= yeoman.dist %>'
             },
-            html: '<%= yeoman.app %>/index.html'
+            html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/map.html']
         },
         usemin: {
             options: {
@@ -228,6 +228,10 @@ module.exports = function (grunt) {
                     '<%= yeoman.dist %>/styles/fri-main.css': [
                         '.tmp/styles/{,*/}*.css',
                         '<%= yeoman.app %>/styles/{,*/}*.css'
+                    ],
+                    '<%= yeoman.dist %>/styles/map.css': [
+                        '.tmp/styles/{,*/}map.css',
+                        '<%= yeoman.app %>/styles/{,*/}map.css'
                     ]
                 }
             }

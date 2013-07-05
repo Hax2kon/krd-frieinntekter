@@ -8,22 +8,26 @@ friApp.map = function (_) {
 		map,
 		fylkerRequest;
 
+
 	function getFylker(){
-		return $.getJSON('scripts/json/N5000_fylker.topojson.js');
+		return $.getJSON('scripts/json/N5000_fylker.topo.json');
 	}
 
 	function getKommuner(){
-		return $.getJSON('scripts/json/topojson.js');
+		return $.getJSON('scripts/json/topojson.json');
 	}
 
 	function getKommunerList() {
-		return $.getJSON('scripts/json/kommuner.js');
+		return $.getJSON('scripts/json/kommuner.json');
 	}
 
     return {
         // public method
         init: function (options) {
-        	map = L.map('map').setView(options.latLng, options.zoom);
+            this.o = {};
+            
+            _.extend(this.o, options);
+        	map = L.map('map').setView(this.o.latLng, this.o.zoom);
         	info = friApp.info.init(map, 'Klikk i kartet');
 
             // display fylker
