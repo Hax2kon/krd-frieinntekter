@@ -9,17 +9,16 @@
 }
 
 #fri-map {
-	width: 400px;
+	width: $aside-width;
+    margin-left: -20px;
 	height: 500px;
-    margin: 0 0 0 -80px;
-    margin-left: -160px\9; // ie8
     background: transparent;
     z-index: 1;
-    @include transform(rotate(-15deg));
+    //@include transform(rotate(-15deg));
     //@include rotateIE(-30);
     // from http://www.boogdesign.com/examples/transforms/matrix-calculator.html
-    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.96592583, M12=0.25881905, M21=-0.25881905, M22=0.96592583,sizingMethod='auto expand')";
-    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.96592583, M12=0.25881905, M21=-0.25881905, M22=0.96592583,sizingMethod='auto expand');
+    //-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.96592583, M12=0.25881905, M21=-0.25881905, M22=0.96592583,sizingMethod='auto expand')";
+    //filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.96592583, M12=0.25881905, M21=-0.25881905, M22=0.96592583,sizingMethod='auto expand');
 }
 
 .leaflet-container {

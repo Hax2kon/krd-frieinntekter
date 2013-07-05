@@ -40,8 +40,6 @@ $(function() {
     friApp.navigation.init({
     	$container: $('.fri-navs'),
         $navEl: $('#fri-fylker-nav'),
-        zoom: 4,
-        latLng: [63, 16],
         scrollToActiveFylke: $('.fri-fylke').length
     });
 

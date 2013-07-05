@@ -6,11 +6,17 @@ friApp.map = function (L, _) {
     // private property
     var o = {},
         fylkerLayers,
-        activeFylkeLayer;
+        activeFylkeLayer,
+        colors = {
+            background: '#818285',
+            active: '#495e29',
+            selected: '#444444'
+        };
 
     function getFylker(){
         return $.getJSON(friApp.config.SCRIPT_PATH + '/json/N5000_fylker.' + o.dataType + '.json');
     }
+
     function initMap(fylkerGeoJson) {
         fylkerLayers = L.geoJson(fylkerGeoJson, {
             style: style,
@@ -19,7 +25,7 @@ friApp.map = function (L, _) {
 
         // highlight active fylke (if any)
         if(o.$activeNavEl.length) {
-            activeFylkeLayer = getActiveFylkeLayer(o.$activeNavEl.attr('id').slice(6, 8)).fire('mouseover', { init: true, fillColor: '#444444' });
+            activeFylkeLayer = getActiveFylkeLayer(o.$activeNavEl.attr('id').slice(6, 8)).fire('mouseover', { init: true, fillColor: colors.selected });
         }
     }
 
@@ -28,7 +34,7 @@ friApp.map = function (L, _) {
             fillColor: '#ffffff',
             weight: 1,
             opacity: 1,
-            color: '#818285',
+            color: colors.background,
             dashArray: 0,
             fillOpacity: 1
         };
@@ -44,7 +50,7 @@ friApp.map = function (L, _) {
 
     function highlightFeature(e) {
         var layer = e.target;
-        var fillColor = e.fillColor || '#495e29';
+        var fillColor = e.fillColor || colors.active;
         layer.setStyle({
             fillColor: fillColor,
             weight: 1,
@@ -64,10 +70,9 @@ friApp.map = function (L, _) {
     }
 
     function resetHighlight(e) {
-        // 495e29
         fylkerLayers.resetStyle(e.target);
         if(activeFylkeLayer) {
-            activeFylkeLayer.fire('mouseover', { fillColor: '#444444'} );
+            activeFylkeLayer.fire('mouseover', { fillColor: colors.selected } );
         }
         o.$navEls.removeClass('hover');
     }
@@ -95,6 +100,8 @@ friApp.map = function (L, _) {
         // public method
         init: function (options) {
             o = $.extend({}, o, options);
+            o.zoom = 4;
+            o.latLng = [63, 18];
 
             o.map = L.map('fri-map', {
                 zoomControl: false,
