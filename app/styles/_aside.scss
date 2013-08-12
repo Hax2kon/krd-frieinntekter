@@ -8,6 +8,9 @@
 	}
 	a {
 		color: #fff;
+    &:focus span {
+      background: $base-color-dark;
+    }
 	}
   h2 {
     font-weight: bold;
