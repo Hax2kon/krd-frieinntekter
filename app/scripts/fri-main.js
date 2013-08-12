@@ -1,4 +1,5 @@
 $(function() {
+	$('.fri-popup').addClass('mfp-hide');
 	$(".fri-collapse-main").collapse({
 		query: '.collapsible .header',
 		open: function() {
