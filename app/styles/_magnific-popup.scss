@@ -63,6 +63,8 @@ $include-mobile-layout-for-image: true !default; // Removes paddings from top an
 $caption-title-color:             #F3F3F3 !default;
 $caption-subtitle-color:          #BDBDBD !default;
 
+// A11Y
+$use-visuallyhidden:              true !default;
 
 
 ////////////////////////
@@ -176,10 +178,22 @@ $caption-subtitle-color:          #BDBDBD !default;
 }
 
 // Helper class that hides stuff
-.mfp-hide {
-  display: none !important;
+@if $use-visuallyhidden {
+  .mfp-hide {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+} @else {
+  .mfp-hide {
+    display: none !important;
+  }
 }
-
 
 
 ////////////////////////
