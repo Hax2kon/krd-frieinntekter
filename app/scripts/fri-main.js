@@ -28,13 +28,15 @@ $(function() {
 	// match zeroes
 	$('.fade-zeros').fadeZeroes();
 
-	$('.open-popup-link').bind('click', function() {
-		$.magnificPopup.open({
-			items: {
-				src:  $(this).data('src') || $(this).attr('href'),
-				type: 'inline'
-			}
-		});
+	$('.open-popup-link').bind('click keypress', function(e) {
+		if(e.keyCode && e.keyCode === 13){
+			$.magnificPopup.open({
+				items: {
+					src:  $(this).data('src') || $(this).attr('href'),
+					type: 'inline'
+				}
+			});
+		}
 	});
 
     // init navigation
