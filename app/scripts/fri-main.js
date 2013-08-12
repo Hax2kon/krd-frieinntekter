@@ -29,14 +29,15 @@ $(function() {
 	$('.fade-zeros').fadeZeroes();
 
 	$('.open-popup-link').bind('click keypress', function(e) {
-		if(e.keyCode && e.keyCode === 13){
-			$.magnificPopup.open({
-				items: {
-					src:  $(this).data('src') || $(this).attr('href'),
-					type: 'inline'
-				}
-			});
+		if(e.keyCode && e.keyCode !== 13){
+			return;
 		}
+		$.magnificPopup.open({
+			items: {
+				src:  $(this).data('src') || $(this).attr('href'),
+				type: 'inline'
+			}
+		});
 	});
 
     // init navigation
