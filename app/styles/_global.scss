@@ -76,49 +76,55 @@
 }
 
 .fri-header {
-  //background: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
- //width: 300px;
-  //text-align: center;
   h1 {
     padding: 15px 30px;
     margin: 0;
     font-size: 20px;
-  }
-
-}
- .fancy {
-    line-height: 1.5;
+    line-height: 1.25;
     a {
       color: $base-color-dark;
       text-decoration: none;
+      display: inline-block;
+      position: relative;
       &:hover {
         text-decoration: underline;
       }
+      &:before, 
+      &:after {
+        content: "";
+        position: absolute;
+        height: 13px;
+        border-bottom: 1px solid $base-color-dark;
+        top: 0;
+        width: 800px;
+      }
+      &:before {
+        right: 100%;
+        margin-right: 15px;
+      }
+      &:after {
+        left: 100%;
+        margin-left: 15px;
+      }
+    }
+    span {
+      &:before,
+      &:after {
+        $radius: 3px;
+        @include tiny-circle($radius);
+        left: -15px;
+        top: 11px;
+      }
+      &:after {
+        left: auto;
+        right: -15px;
+      }
     }
   }
-  .fancy a {
-    display: inline-block;
-    position: relative;
-  }
-  .fancy a:before,
-  .fancy a:after {
-    content: "";
-    position: absolute;
-    height: 13px;
-    border-bottom: 1px solid $base-color-dark;
-    top: 0;
-    width: 800px;
-  }
-  .fancy a:before {
-    right: 100%;
-    margin-right: 15px;
-  }
-  .fancy a:after {
-    left: 100%;
-    margin-left: 10px;
-  }
+
+}
 
 .fri-dl-horizontal {
   dt {

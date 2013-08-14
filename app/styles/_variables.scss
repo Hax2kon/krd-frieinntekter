@@ -30,6 +30,16 @@ $main-width: $container-width - $aside-width - $gutter;
     width: 1px;
 }
 
+@mixin tiny-circle($radius){
+  @include border-radius($radius);
+  width: $radius;
+  height: $radius;
+  border: 1px solid $base-line-color;
+  background: $background-main-expanded;
+  content: "";
+  position: absolute;
+}
+
 /*
  * Clearfix: contain floats
  *

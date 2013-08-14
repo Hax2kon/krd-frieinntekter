@@ -1,10 +1,15 @@
 .lt-ie9 {
 	.fri-utgiftsutgjevning .index-vertical-line-header {
-		background: url('../images/KRD-GrontHefte/landsgjennomsnitt-sprite-ie.png') no-repeat;
-		border: 0;
-	}
+    background: url('../images/KRD-GrontHefte/landsgjennomsnitt-sprite-ie.png') no-repeat;
+    border: 0;
+    &:hover {
+      background-color: transparent;
+      background-position: 0 -108px;
+    }
+  }
 	.fri-utgjevning-line {
 		//background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=) repeat-x center;
 		background: url('../Images/KRD-GrontHefte/1x1x979899.gif') repeat-x center;
 	}
 }
+
