@@ -64,15 +64,61 @@
   padding: 20px 4em;
 }
 
-.fri-header {
+.fri-aside-header {
   background: #818285;
-  h1 {
+  h2 {
     padding: 20px 0;
     color: #fff;
     text-align: center;
     margin: 0;
+    font-weight: bold;
   }
 }
+
+.fri-header {
+  //background: #fff;
+  margin-bottom: 20px;
+  overflow: hidden;
+ //width: 300px;
+  //text-align: center;
+  h1 {
+    padding: 15px 30px;
+    margin: 0;
+    font-size: 20px;
+  }
+
+}
+ .fancy {
+    line-height: 1.5;
+    a {
+      color: $base-color-dark;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .fancy a {
+    display: inline-block;
+    position: relative;
+  }
+  .fancy a:before,
+  .fancy a:after {
+    content: "";
+    position: absolute;
+    height: 13px;
+    border-bottom: 1px solid $base-color-dark;
+    top: 0;
+    width: 800px;
+  }
+  .fancy a:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+  .fancy a:after {
+    left: 100%;
+    margin-left: 10px;
+  }
 
 .fri-dl-horizontal {
   dt {
