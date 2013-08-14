@@ -38,7 +38,8 @@ $right-col-offset-width: 110px;
 	.criteria {
 		width: 48%;
 		padding-right: 0;
-		padding-left: 0;
+		//padding-left: 0;
+		padding-left: 10px;
 	}
 	.sum {
 		width: 6%;
@@ -67,7 +68,9 @@ $right-col-offset-width: 110px;
 		line-height: 1.3;
 		text-decoration: none;
 		&:hover {
-			background: #fff;
+			background: $base-color-dark;
+			color: #fff;
+			border-color: $base-color-dark;
 		}
 	}
 
@@ -173,4 +176,11 @@ $right-col-offset-width: 110px;
 	background: $background-main-expanded;
 	display: inline;
 	padding-right: 10px;
+	text-decoration: underline;
+}
+
+.fri-popup-row {
+	td {
+		padding: 0;
+	}
 }
