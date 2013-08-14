@@ -101,7 +101,7 @@ friApp.map = function (L, _) {
         init: function (options) {
             o = $.extend({}, o, options);
             o.zoom = 4;
-            o.latLng = [63, 18];
+            o.latLng = [63, 17];
 
             o.map = L.map('fri-map', {
                 zoomControl: false,
