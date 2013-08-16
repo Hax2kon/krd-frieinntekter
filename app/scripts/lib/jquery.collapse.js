@@ -52,11 +52,14 @@
       }
     });
 
-    // Capute ALL the clicks!
-    (function(scope) {
-      _this.$el.bind("click", "[data-collapse-summary]",
-        $.proxy(_this.handleClick, scope));
+  // Capute ALL the clicks!
+  (function(scope) {
+    $('.group .header, .sub-header > a').bind("click",
+      $.proxy(_this.handleClick, scope));
     }(_this));
+    // _this.$el.bind("click", "[data-collapse-summary]",
+    //   $.proxy(_this.handleClick, scope));
+    // }(_this));
   }
 
   Collapse.prototype = {
