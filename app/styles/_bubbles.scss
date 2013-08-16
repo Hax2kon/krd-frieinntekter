@@ -5,7 +5,16 @@
     cursor: pointer;
   }
 }
-
+#fri-bubbles {
+  border: 1px solid $background-main-expanded;
+  &:focus {
+    outline: 0;
+    //background-color: #ffc;
+    border: 1px dotted #666;
+  }
+  &:active {
+  }
+}
 .fri-bubbles {
   ul {
     @extend %visuallyhidden;
@@ -37,7 +46,4 @@
   span {
     @extend %visuallyhidden;
   }
-}
-
-.fri-bubbles {
 }
