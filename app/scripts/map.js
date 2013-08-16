@@ -101,8 +101,9 @@ friApp.map = function (L, _) {
         init: function (options) {
             o = $.extend({}, o, options);
             o.zoom = 4;
-            o.latLng = [63, 17];
-
+            // ie8 doesnt have a rotated map, so need slightly different lat lng values
+            o.latLng = $('.fri-container').hasClass('lt-ie9') ? [63, 18.75] : [63, 17];
+            
             o.map = L.map('fri-map', {
                 zoomControl: false,
                 attributionControl: false,
