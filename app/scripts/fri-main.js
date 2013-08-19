@@ -17,8 +17,10 @@ $(function() {
 	}).bind('open', function(e, section) {
 		//console.log(section, " is open");
 		// create vertical line on utgiftsutgjevning table
-		$('.fri-utgiftsutgjevning > table').createLine(lineIsShown);
-		lineIsShown = true;
+		setTimeout(function() {
+	    $('.fri-utgiftsutgjevning > table').createLine(lineIsShown);
+			lineIsShown = true;
+  	}, 100);
 	});
 
 	$('.init-bubbles').bind('click', function() {
