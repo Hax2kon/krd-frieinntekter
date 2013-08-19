@@ -2,7 +2,7 @@
 	$.fn.friEqualHeights = function() {
 		return this.each(function() {
 			var $this = $(this),
-				$main = $this.find('.fri-main'),
+				$main = $this.find('.fri-intro'),
 				$aside = $this.find('.fri-aside'),
 				heights = {
 					main: $main.height(),
@@ -12,7 +12,7 @@
 			if(heights.main > heights.aside){
 				$aside.height(heights.main);
 			} else {
-				$main.height(heights.aside - 40);
+				$main.height(heights.aside - 80);
 			}
 		});
 	}
