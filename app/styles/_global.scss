@@ -13,6 +13,10 @@
   @extend %visuallyhidden;
 }
 
+.fri-nowrap {
+  white-space: nowrap;
+}
+
 
 .fri-container {
   font-family: $serif-font-family;

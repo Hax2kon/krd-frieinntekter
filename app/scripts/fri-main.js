@@ -73,8 +73,11 @@ $(function() {
 	// example: 0,0098 => <span>0,00</span>98
 	$.fn.fadeZeroes = function() {
 		return this.each(function() {
+			if(!this.innerHTML)
+				return;
+			
 			var $this = $(this),
-				str = $this[0].innerHTML,
+				str = this.innerHTML,
 				regex = /[^1-9]+/; // match all zeroes
 				match = str.match(regex);
 
